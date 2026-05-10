@@ -1,0 +1,8 @@
+    Updating git repository `https://github.com/Serial-ATA/lofty-rs`
+    Updating crates.io index
+error: failed to select a version for the requirement `lofty = "^0.23.2"`
+  version 0.23.2 is yanked
+  version 0.23.3 is yanked
+location searched: crates.io index
+required by package `yt-dlp v2.7.2`
+    ... which satisfies dependency `yt-dlp = "^2.7.2"` of package `twtdl v0.1.0 (/home/will/git/twtdl)`

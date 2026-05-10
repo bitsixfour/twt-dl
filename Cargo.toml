@@ -4,3 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+async = "0.0.0"
+lofty = "0.24.0"
+yt-dlp = { version = "2.7.2", features = ["cache-memory"] }
+
+[patch.crates-io]
+lofty = { git = "https://github.com/Serial-ATA/lofty-rs", branch = "main" }
