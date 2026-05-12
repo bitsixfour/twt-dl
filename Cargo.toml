@@ -5,8 +5,4 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0"
-tokio = { version = "1", features = ["macros", "rt-multi-thread"] }
-yt-dlp = { version = "2.7.2", features = ["cache-memory"] }
-
-[patch.crates-io]
-lofty = { git = "https://github.com/Serial-ATA/lofty-rs", tag = "v0.23.2" }
+tokio = { version = "1", features = ["fs", "macros", "process", "rt-multi-thread"] }
