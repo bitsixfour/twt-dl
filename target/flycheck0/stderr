@@ -1,29 +1,14 @@
-    Blocking waiting for file lock on build directory
-   2.461514542s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint: fingerprint error for twtdl v0.1.0 (/home/will/git/twtdl)/Check { test: true }/TargetInner { name: "twtdl", doc: true, ..: with_path("/home/will/git/twtdl/src/main.rs", Edition2024) }
-   2.461535792s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/will/git/twtdl/target/debug/.fingerprint/twtdl-e9ed2ea548155e8a/test-bin-twtdl`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: <std::io::error::Error as anyhow::context::ext::StdError>::ext_context::<alloc::string::String>
-   1: cargo_util::paths::read
-   2: cargo::core::compiler::fingerprint::prepare_target
-   3: cargo::core::compiler::compile
-   4: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   5: cargo::ops::cargo_compile::compile_ws
-   6: cargo::ops::cargo_compile::compile_with_exec
-   7: cargo::ops::cargo_compile::compile
-   8: cargo::commands::check::exec
-   9: <cargo::cli::Exec>::exec
-  10: cargo::cli::main
-  11: cargo::main
-  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  13: std::rt::lang_start::<()>::{closure#0}
-  14: std::rt::lang_start_internal
-  15: main
-  16: __libc_start_call_main
-  17: __libc_start_main_alias_2
-  18: _start
+   0.041450153s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint: stale: changed "/home/will/git/twtdl/src/main.rs"
+   0.041463368s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:           (vs) "/home/will/git/twtdl/target/debug/.fingerprint/twtdl-87a11045e8ea7a95/dep-bin-twtdl"
+   0.041466183s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1778726761, nanos: 13307456 } < FileTime { seconds: 1778728598, nanos: 989628912 }
+   0.041528941s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint: fingerprint dirty for twtdl v0.1.0 (/home/will/git/twtdl)/Check { test: false }/TargetInner { name: "twtdl", doc: true, ..: with_path("/home/will/git/twtdl/src/main.rs", Edition2024) }
+   0.041537046s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/will/git/twtdl/target/debug/.fingerprint/twtdl-87a11045e8ea7a95/dep-bin-twtdl", reference_mtime: FileTime { seconds: 1778726761, nanos: 13307456 }, stale: "/home/will/git/twtdl/src/main.rs", stale_mtime: FileTime { seconds: 1778728598, nanos: 989628912 } }))
+   0.045786224s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint: stale: changed "/home/will/git/twtdl/src/main.rs"
+   0.045793267s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:           (vs) "/home/will/git/twtdl/target/debug/.fingerprint/twtdl-e607ebbdbe2e96a0/dep-test-bin-twtdl"
+   0.045796142s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1778726761, nanos: 13307456 } < FileTime { seconds: 1778728598, nanos: 989628912 }
+   0.045830206s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint: fingerprint dirty for twtdl v0.1.0 (/home/will/git/twtdl)/Check { test: true }/TargetInner { name: "twtdl", doc: true, ..: with_path("/home/will/git/twtdl/src/main.rs", Edition2024) }
+   0.045837881s  INFO prepare_target{force=false package_id=twtdl v0.1.0 (/home/will/git/twtdl) target="twtdl"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/will/git/twtdl/target/debug/.fingerprint/twtdl-e607ebbdbe2e96a0/dep-test-bin-twtdl", reference_mtime: FileTime { seconds: 1778726761, nanos: 13307456 }, stale: "/home/will/git/twtdl/src/main.rs", stale_mtime: FileTime { seconds: 1778728598, nanos: 989628912 } }))
     Checking twtdl v0.1.0 (/home/will/git/twtdl)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.57s
+error: could not compile `twtdl` (bin "twtdl" test) due to 2 previous errors; 2 warnings emitted
+warning: build failed, waiting for other jobs to finish...
+error: could not compile `twtdl` (bin "twtdl") due to 2 previous errors; 2 warnings emitted
