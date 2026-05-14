@@ -20,8 +20,9 @@ struct Args {
     count: u8,
 }
 
-async fn download_url(args: &Args)  {
-
+async fn download_url(args: &Args, dwl: &Downloader, url: &String)  {
+    let video = downloader.fetch_video_infos(url).await?;
+    /* freaing yt-dlp crate doesn't work apparent;y1 */
 
 }
 #[tokio::main]
@@ -36,12 +37,12 @@ async fn main() -> anyhow::Result<()> {
     let ffmpeg = lib.join("vids");
 
     let library = Libraries::new(twtdl, ffmpeg);
-    let downloader = Downloader::builder(library, opt).build.await?;
+    let downloader: Downloader = Downloader::builder(library, opt).build.await?;
 
     let args = Args::parse();
     let vid =  args.url;
 
-    download_url(&args).await;
+    download_url(&args, &downloader, &args.url).await?;
     println!("Good morning saar....");
 
     Ok(())
