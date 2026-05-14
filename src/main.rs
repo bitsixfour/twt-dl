@@ -2,22 +2,27 @@ use anyhow::{bail, Context, Result};
 use std::path::{Path, PathBuf};
 use clap::Parser;
 use std::env;
+use std::error::Error;
+use yt_dlp::Downloader;
+use yt_dlp::client::deps::Libraries;
+
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
 struct Args {
     /// Name of the person to greet
     #[arg(short, long)]
-    name: String,
+    name: Option<String>,
     #[arg(short, long)]
-    url: Option<String>,
+    url: String,
     /// Number of times to greet
     #[arg(short, long, default_value_t = 1)]
     count: u8,
 }
 
-fn parse_url<'a>(args: &'a Args) -> &'a str {
-    &args.url
+async fn download_url(args: &Args)  {
+
+
 }
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
@@ -25,19 +30,19 @@ async fn main() -> anyhow::Result<()> {
 
 
     let lib = PathBuf::from("/home").join(&usr);
-    let opt = PathBuf::from("output");
+    let opt = lib.join("Videos");
 
-    let youtube = lib.join("yt-dlp");
+    let twtdl= lib.join("twt-dlp");
     let ffmpeg = lib.join("vids");
 
+    let library = Libraries::new(twtdl, ffmpeg);
+    let downloader = Downloader::builder(library, opt).build.await?;
+
     let args = Args::parse();
-    let vid: &str = parse_url(&args);
+    let vid =  args.url;
 
-
+    download_url(&args).await;
     println!("Good morning saar....");
-    if let Some(url) = args.name {
-        j
-    }
 
     Ok(())
 }
